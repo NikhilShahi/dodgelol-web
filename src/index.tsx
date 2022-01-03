@@ -7,6 +7,7 @@ import { $salmon, $teal, $white } from "./constants/colors";
 import App from "./App";
 import { SummonerPage } from "./pages";
 import reportWebVitals from "./reportWebVitals";
+import { ChakraProvider } from "@chakra-ui/react";
 
 const Container = styled.div`
   background-color: ${$salmon};
@@ -16,14 +17,16 @@ const Container = styled.div`
 
 ReactDOM.render(
   <React.StrictMode>
-    <Container>
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<App />} />
-          <Route path="/summoner/:summonerName" element={<SummonerPage />} />
-        </Routes>
-      </BrowserRouter>
-    </Container>
+    <ChakraProvider>
+      <Container>
+        <BrowserRouter>
+          <Routes>
+            <Route path="/" element={<App />} />
+            <Route path="/summoner/:summonerName" element={<SummonerPage />} />
+          </Routes>
+        </BrowserRouter>
+      </Container>
+    </ChakraProvider>
   </React.StrictMode>,
   document.getElementById("root")
 );
